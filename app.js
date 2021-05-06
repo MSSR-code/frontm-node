@@ -10,6 +10,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const redis = require("redis");
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
@@ -19,8 +20,9 @@ dotenv.config({ path: '.env' });
 /**
  * Router (route handlers).
  */
-// const containerRouter = require('./routes/container');
 const foodItemRouter = require('./routes/foodItem');
+const inventoryRoutes = require('./routes/inventory');
+const orderRoutes = require('./routes/order');
 
 /**
  * Create Express server.
@@ -42,6 +44,19 @@ mongoose.connection.on('error', err => {
         chalk.red('✗')
     );
     process.exit();
+});
+
+/**
+ * Connect Redis
+ */
+ const client = redis.createClient(process.env.REDIS_PORT,process.env.REDIS_HOST);
+ client.on("error", function(error) {
+    console.error(error);
+ });
+
+app.use(function(req, res, next) {
+    req.redis = client;
+    next();
 });
 
 /**
@@ -68,9 +83,21 @@ app.get('/', (req, res) => {
 
 
 /**
- * User routes
+ * food Item routes
  */
 app.use('/foodItem', foodItemRouter);
+
+/**
+ * inventory routes
+ */
+ app.use('/inventory', inventoryRoutes);
+
+ /**
+ * order routes
+ */
+  app.use('/order', orderRoutes);
+
+
 
 /**
  * Handle error routes

@@ -30,6 +30,7 @@ exports.addFoodItem = (req, res, next) => {
         .then(() => {
             res.status(200).send({
                 message: 'Successfully Created Food Item',
+                foodId: foodItem.foodId
             });
         })
         .catch(err => {

@@ -3,7 +3,7 @@ const foodItemController = require('../controllers/foodItem');
 
 foodItemRoutes.get('/', (req, res) => {
     res.status(200).send({
-        message: 'Food Item Controller.',
+        message: 'Food Item Api.',
     });
 });
 

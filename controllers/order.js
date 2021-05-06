@@ -8,7 +8,6 @@ const customValidator = require('../utils/customValidator');
 exports.addOrder = (req, res, next) => {
     const validationErrors = [];
     
-    customValidator.validationWrapper(req.body, validationErrors, "customerName", 0,120);
     customValidator.validationWrapper(req.body, validationErrors, "orderedItems");
 
     if(!Array.isArray(req.body.orderedItems)){

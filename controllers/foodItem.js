@@ -159,6 +159,9 @@ exports.getFoodItem = (req, res, next) => {
  * Food Items Search Controller
  */
 exports.searchFoodItems = (req, res, next) => {
+
+    console.log(req.query,(new Date()).toUTCString());
+
     const validationErrors = [];
     let searchObj = {}
     let sortObj = { _id: 1}

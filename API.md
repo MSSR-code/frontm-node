@@ -146,7 +146,7 @@ Food Item Data Schema
     - Method `GET`
     - Url <i>`/foodItem/getFoodItem`</i>
     - Url Parameters
-        -`foodId` Id of the food item
+        - `foodId` Id of the food item
     - Body Parameters
         - None
     - Success Response
@@ -171,12 +171,12 @@ Food Item Data Schema
     - Method `GET`
     - Url <i>`/foodItem/searchFoodItems`</i>
     - Url Parameters
-        -`searchParam` "Text to be searched"
-        -`sort` "Sorting order: ASC or DSC" (Optional)
-        -`paginateFrom` "Pagination begin Index" (Optional)
-        -`paginateTo` "Pagination end Index" (Optional)
-        -`priceFrom` "Price Range Min. Bound" (Optional)
-        -`priceTo` "Price Range Max. Bound" (Optional)
+        - `searchParam` "Text to be searched"
+        - `sort` "Sorting order: ASC or DSC" (Optional)
+        - `paginateFrom` "Pagination begin Index" (Optional)
+        - `paginateTo` "Pagination end Index" (Optional)
+        - `priceFrom` "Price Range Min. Bound" (Optional)
+        - `priceTo` "Price Range Max. Bound" (Optional)
     - Body Parameters
         - None
     - Success Response
@@ -279,7 +279,7 @@ The inventory is stored in `Redis` as a key-value pair. The key being `foodId` a
     - Method `GET`
     - Url <i>`/inventory/getFoodItemQuantity`</i>
     - Url Parameters
-        -`foodId` Id of the food item
+        - `foodId` Id of the food item
     - Body Parameters
         - None
     - Success Response
@@ -385,7 +385,7 @@ Order Data Schema
     - Method `GET`
     - Url <i>`/order/getOrder`</i>
     - Url Parameters
-        -`orderId` Id of the order 
+        - `orderId` Id of the order 
     - Body Parameters
         - None
     - Success Response

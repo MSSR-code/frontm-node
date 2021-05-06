@@ -43,7 +43,8 @@ async function seedDB() {
 
         db.collection('fooditems').insertMany(foodCollection);
 
-        
+        db.collection('fooditems').createIndex( { name: "text", category: "text",cuisine: "text" } )
+
         // orderDb
         db.collection("orders").drop();
 
